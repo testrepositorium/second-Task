@@ -1,0 +1,69 @@
+.firstDiv {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 940px;
+    height: 70px;
+    background: #e4e4e4;
+    border-radius: 2px;
+    color: #949494;
+}
+
+.firstDiv ul {
+    margin: auto;
+    width: 940px;
+    height: 21px;
+    margin:0;
+    padding: 0;
+}
+
+.firstDiv ul li {
+    float: left;
+    list-style: none;
+    margin-top: 0;
+}
+
+.firstDiv ul li:first-child, .firstDiv select {
+    width: 150px;
+}
+
+.firstDiv ul li:nth-child(2){
+    width: 590px;
+    margin-left: 20px;
+}
+
+.futureForm {
+    display: block; 
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    padding:5px 10px;
+}
+
+input[name=inputForTask]  {
+    margin-left: 20px;
+    width: 545px;
+}
+
+button[someProperty=nameForUnusualProperty] {
+    width: 150px;
+    background: #029b29;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 26px;
+}
+
+button[someProperty=nameForUnusualProperty]:active {
+    transform: scale(1.1);
+    transition: 0.4s;
+}
+
+button[someProperty=nameForUnusualProperty]:hover {
+    transition: 0.8s;
+    transform: scale(1.3);
+}
+
+button[someProperty=nameForUnusualProperty]:hover {
+    background: #00671b;
+}

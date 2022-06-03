@@ -1,0 +1,48 @@
+.secondDiv{
+    margin: 10px auto;
+    background: #e4e4e4;
+    width: 900px;
+    border-radius: 2px;
+    padding: 0 20px;
+    height: 70px;
+}
+
+.objectsFromSecondDiv {
+    margin-top: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.filterText {
+    color: #909090;
+}
+
+input[type=checkbox] {
+    margin-right: 10px;
+}
+
+label[for=firstButton] {
+    text-align: center;
+    margin: 0 15px 0 77px;
+}
+
+input[name=firstButton] {
+    width: 150px;
+    height: 19px;
+    background: #fff;
+    border: none;
+    border-radius: 2px;
+    text-align: left;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s; /*Плавное нажатие*/
+    
+}
+
+input[name=firstButton]:hover {
+    background: #ffd;
+}
+
+input[name=firstButton]:active {
+    background: #ff5;
+}

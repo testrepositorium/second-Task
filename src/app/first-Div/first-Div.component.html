@@ -1,0 +1,15 @@
+<div class="firstDiv"> 
+    <div class="futureForm"> 
+        <ul>
+            <li>Приоритет:</li>
+            <li>Текст задачи:</li> 
+        </ul>
+        <select name="priority" id="priority"> 
+            <option name="set_low" value="Низкий">Низкий</option>
+            <option name="set_middle" value="Средний">Средний</option>
+            <option name="set_high" value="Высокий">Высокий</option>
+        </select>
+        <input type="text" name="inputForTask" placeholder="Введите текст..." id="firstInput" [(ngModel)]="description" /> 
+        <button type="button" (click)="addNewTask()" someProperty="nameForUnusualProperty"  name="setButton" id="buttonInTheFirstForm">Добавить задачу...</button>
+    </div> 
+</div>
