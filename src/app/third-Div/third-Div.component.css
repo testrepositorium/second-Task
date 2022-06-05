@@ -18,7 +18,7 @@
     margin-bottom: 30px;
 }
 
-.priorityOfTask, .mainFieled, .deleteButton {
+.priorityOfTask, .mainField, .deleteButton {
     display: inline-block;
     vertical-align: middle;
 }
@@ -38,7 +38,7 @@
     line-height: 80px;
 }
 
-.mainFieled {
+.mainField {
     background: white;
     border-radius: 2px;
     padding: 5px;
@@ -78,7 +78,7 @@
     width: 400px;
 }
 
-.filedOfDate, .placeForChanges {
+.fieldOfDate, .placeForChanges {
     display: inline-block;
 }
 
@@ -108,7 +108,7 @@ object {
     transition: 0.2s;
 }
 
-.filedOfDate {
+.fieldOfDate {
     font-size: 10px;
     padding-top: 10px;
     width: 290px;
@@ -119,10 +119,10 @@ object {
     text-align: right;
 }
 
-.firstStatusButton {
+.firstStatusButton, .secondStatusButton {
     margin-bottom: 5px;
-    width: 25px;
-    height: 25px;
+    width: 100px;
+    height: 100px;
     cursor: pointer;
 }
 

@@ -17,9 +17,8 @@ export class ThirdComponent implements OnInit {
 
     ngOnInit(): void{
         this.service.getData()
-        .subscribe((data: AllTasks[]) => {
+        this.service.data$.subscribe((data: AllTasks[]) => {
             this.arrayOfTasks = data;
-            console.log('привет');
         });
     }
 }

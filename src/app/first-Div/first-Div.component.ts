@@ -3,6 +3,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 
 import { AllTasks } from '../allTasks.interface';
 import { AllTasksService } from '../allTasks.service';
+import { ThirdComponent } from '../third-Div/third-Div.component';
 
 @Component({
     selector: 'first-comp',
@@ -13,6 +14,7 @@ import { AllTasksService } from '../allTasks.service';
 export class FirstComponent implements OnInit, OnDestroy {
     
     description: string = '';
+    priority: string = 'Низкий';
 
     firstPartOfTime: string = '';
     secondPartOfTime: string = '';
@@ -28,7 +30,7 @@ export class FirstComponent implements OnInit, OnDestroy {
         this.makeDate();
         let someTask: AllTasks = {
             description: this.description,
-            priority: '',
+            priority: this.priority,
             status: 1,
             date: this.firstPartOfTime + ' ' + this.secondPartOfTime,
             descOfStatus: '',
