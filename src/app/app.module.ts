@@ -14,7 +14,7 @@ import { ThirdComponent } from './third-Div/third-Div.component';
     AppComponent,
     FirstComponent,
     SecondComponent,
-    ThirdComponent
+    ThirdComponent,
   ],
   imports: [
     BrowserModule,

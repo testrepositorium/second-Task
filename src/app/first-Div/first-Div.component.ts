@@ -20,8 +20,8 @@ export class FirstComponent implements OnInit, OnDestroy {
     secondPartOfTime: string = '';
     makeDate(): void{
         let currentTime = new Date();
-        this.firstPartOfTime += formatDate(currentTime, 'dd-MM-yyyy', 'en-US', '+0300');
-        this.secondPartOfTime += formatDate(currentTime, 'HH:mm','en-US', '+0300');
+        this.firstPartOfTime = formatDate(currentTime, 'dd-MM-yyyy', 'en-US', '+0300') + '';
+        this.secondPartOfTime = formatDate(currentTime, 'HH:mm','en-US', '+0300') + '';
     }
 
     constructor(public service: AllTasksService) {}

@@ -20,6 +20,12 @@ export class AllTasksService {
         return this.http.post('http://localhost:3000/items', task).toPromise()
         .then((res) => this.getData());
     }
+
+    deleteData(task: any) {
+        return this.http.delete(`http://localhost:3000/items/${task.id}`).toPromise()
+        .then((res) => this.getData());
+    }
+
     getData() : void {
         this.http.get('http://localhost:3000/items').toPromise()
             .then((res) => {

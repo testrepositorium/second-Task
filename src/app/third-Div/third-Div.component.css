@@ -121,8 +121,8 @@ object {
 
 .firstStatusButton, .secondStatusButton {
     margin-bottom: 5px;
-    width: 100px;
-    height: 100px;
+    width: 25px;
+    height: 25px;
     cursor: pointer;
 }
 

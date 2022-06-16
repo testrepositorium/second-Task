@@ -1,36 +1,38 @@
 <div class="thirdDiv">
     <div class="tasksList">
         <div class="Task" *ngFor="let task of arrayOfTasks">
-            <div class="priorityOfTask">
-                <span>{{task.priority}}</span>
+            <div class="priorityOfTask" [ngSwitch]="task.priority">
+                <ng-template ngSwitchCase="Низкий"><span style="color:red">{{task.priority}}</span></ng-template>
+                <ng-template ngSwitchCase="Средний"><span style="color:yellow">{{task.priority}}</span></ng-template>
+                <ng-template ngSwitchCase="Высокий"><span style="color:green">{{task.priority}}</span></ng-template>
             </div>
             <div class="mainField">
                 <div>
-                    <div class="taskInformation">
+                    <div class="taskInformation" id="someTask{{task.id}}" (click)="showInput(task)">
                         <div class="filedOfInformation">
                             <span>{{task.description}}</span>
                         </div>
                     </div>
                     <div class="statusButtons">
                         <div class="firstStatusButton">
-                            <object type="image/svg+xml" data="./assets/krestik.svg" width="25"></object>
+                            <object type="image/svg+xml" data="../../assets/krestik.svg" width="25"></object>
                         </div>
                         <div class="secondStatusButton">
-                            <object type="image/svg+xml" data="./assets/galochka.svg" width="25"></object>
-                        </div>
-                    </div>
+                            <object type="image/svg+xml" data="../../assets/galochka.svg" width="25"></object>
+                        </div> 
+                    </div> 
                 </div>
                 <div>
                     <div class="fieldOfDate">
-                        <span></span>
+                        <span>{{task.date}}</span>
                     </div>
                     <div class="placeForChanges">
                         <span></span>
                     </div>
                 </div>
             </div>
-            <div class="deleteButton">
-                <object type="image/svg+xml" data="./assets/musorka.svg" width="40"></object>
+            <div class="deleteButton" (click)="deleteTask(task)">
+                <object type="image/svg+xml" data="../../assets/musorka.svg" width="40"></object>
             </div>
         </div>
     </div>
