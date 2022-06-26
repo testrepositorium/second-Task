@@ -3,7 +3,6 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 
 import { AllTasks } from '../allTasks.interface';
 import { AllTasksService } from '../allTasks.service';
-import { ThirdComponent } from '../third-Div/third-Div.component';
 
 @Component({
     selector: 'first-comp',
@@ -27,6 +26,7 @@ export class FirstComponent implements OnInit, OnDestroy {
     constructor(public service: AllTasksService) {}
 
     public addNewTask(): void {
+        if ((!!this.description != false || this.description == '0') && this.description != 'Поле текста задачи не может быть пустым!'){
         this.makeDate();
         let someTask: AllTasks = {
             description: this.description,
@@ -37,6 +37,9 @@ export class FirstComponent implements OnInit, OnDestroy {
         }
         this.service.postData(someTask);
         this.description = "";
+        } else {
+            this.description = 'Поле текста задачи не может быть пустым!';
+        }
     }
     ngOnInit(): void {
         

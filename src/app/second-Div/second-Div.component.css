@@ -8,9 +8,9 @@
 }
 
 .objectsFromSecondDiv {
-    margin-top: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
+    display: flex;
 }
 
 .filterText {
@@ -23,7 +23,7 @@ input[type=checkbox] {
 
 label[for=firstButton] {
     text-align: center;
-    margin: 0 15px 0 77px;
+    margin: 0 15px 0 142px;
 }
 
 input[name=firstButton] {

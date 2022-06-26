@@ -4,12 +4,14 @@
             <li>Приоритет:</li>
             <li>Текст задачи:</li> 
         </ul>
-        <select name="priority" id="priority" [(ngModel)]="priority"> 
-            <option name="set_low" value="Низкий">Низкий</option>
-            <option name="set_middle" value="Средний">Средний</option>
-            <option name="set_high" value="Высокий">Высокий</option>
+        <select id="priority" [(ngModel)]="priority"> 
+            <option value="Низкий">Низкий</option>
+            <option value="Средний">Средний</option>
+            <option value="Высокий">Высокий</option>
         </select>
-        <input type="text" name="inputForTask" placeholder="Введите текст..." id="firstInput" [(ngModel)]="description" /> 
-        <button type="button" (click)="addNewTask()" someProperty="nameForUnusualProperty"  name="setButton" id="buttonInTheFirstForm">Добавить задачу...</button>
+        <input type="text" name="inputForTask" placeholder="Введите текст..." [(ngModel)]="description" /> 
+        <button type="button" (click)="addNewTask()" someProperty="nameForUnusualProperty">Добавить задачу...</button>
+        <!-- <dx-button type="button" (onClick)="addNewTask()" someProperty="nameForUnusualProperty" text="Добавить задачу..."></dx-button> -->
     </div> 
 </div>
+<app-special-window></app-special-window>

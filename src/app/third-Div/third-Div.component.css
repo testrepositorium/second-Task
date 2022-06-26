@@ -16,14 +16,12 @@
 
 .Task {
     margin-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
-.priorityOfTask, .mainField, .deleteButton {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.taskInformation, .statusButtons {
+.taskInformation, .secretField, .statusButtons {
     display: inline-block;
     vertical-align: top;
 }
@@ -33,7 +31,7 @@
 }
 
 .priorityOfTask {
-    width: 100px;
+    width: 50px;
     height: 80px;
     line-height: 80px;
 }
@@ -47,6 +45,11 @@
     width: 600px;
 }
 
+.taskInformation {
+    font-size: 17px;
+    overflow-wrap: break-word;
+}
+
 .mainField2 {
     background: rgb(156, 243, 156);
 }
@@ -54,9 +57,11 @@
 .mainField3 {
     background: rgb(243, 129, 129);
 }
-.taskInformation {
-    width: calc(100% - 45px);
-    margin-right: 10px;
+.taskInformation, .secretField {
+    width: calc(100% - 40px);
+    margin-right: 5px;
+    min-height: 60px;
+    font-weight: bolder;
 }
 
 .fieldOfInforamtion {
@@ -70,7 +75,7 @@
 .newFieldsForInf {
     font-size: 17px;
     font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 30px;
+    margin: 0 5px 26px 0;
     padding-left: 0 !important;
     min-height: 30px;
     border-radius: 10px;
@@ -126,11 +131,10 @@ object {
     cursor: pointer;
 }
 
-.deleteButton {
-    cursor: pointer;
-    margin-left: 35px;
+.thirdSvg, .fourthSvg, .deleteButton {
+    cursor:pointer;
 }
 
-.thirdSvg, .fourthSvg {
-    cursor:pointer;
+.invisibleField {
+    display: none;
 }

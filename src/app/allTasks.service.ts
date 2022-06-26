@@ -23,7 +23,10 @@ export class AllTasksService {
 
     deleteData(task: any) {
         return this.http.delete(`http://localhost:3000/items/${task.id}`).toPromise()
-        .then((res) => this.getData());
+        .then((res) => {
+            this.getData();
+
+        });
     }
 
     getData() : void {
@@ -32,7 +35,12 @@ export class AllTasksService {
                 if(res) {
                     this._data$$.next(res);
                 }
-            })
+            });
+    }
+
+    changeData(id: number, updatedObject: Object) {
+        return this.http.put(`http://localhost:3000/items/${id}`, updatedObject).toPromise()
+        .then((res) => this.getData());
     }
 }
 

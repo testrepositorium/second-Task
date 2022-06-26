@@ -1,39 +1,55 @@
 <div class="thirdDiv">
     <div class="tasksList">
         <div class="Task" *ngFor="let task of arrayOfTasks">
+
             <div class="priorityOfTask" [ngSwitch]="task.priority">
                 <ng-template ngSwitchCase="Низкий"><span style="color:red">{{task.priority}}</span></ng-template>
                 <ng-template ngSwitchCase="Средний"><span style="color:yellow">{{task.priority}}</span></ng-template>
                 <ng-template ngSwitchCase="Высокий"><span style="color:green">{{task.priority}}</span></ng-template>
             </div>
-            <div class="mainField">
+
+            <div class="mainField" [style.background]="(task.status == 1)? 'white': (task.status == 2)? 'rgb(156, 243, 156)' : 'rgb(243, 129, 129)'">
+                
                 <div>
-                    <div class="taskInformation" id="someTask{{task.id}}" (click)="showInput(task)">
+                    <div class="taskInformation" [ngClass]="{invisibleField: checkVisibility(task.id, 'first')}" (click)="showInput(task)">
                         <div class="filedOfInformation">
                             <span>{{task.description}}</span>
                         </div>
                     </div>
-                    <div class="statusButtons">
-                        <div class="firstStatusButton">
+
+                    <div class="secretField" [ngClass]="{invisibleField: checkVisibility(task.id, 'second')}">
+                        <div class="newElement1">
+                            <input type="text" class="newFieldsForInf" [(ngModel)]="task.description">
+                        </div>
+                        <div class="newElement2">
+                            <button type="button" (click)="change(task.id)">Ок</button> 
+                        </div>
+                    </div>
+
+                    <div class="statusButtons" [style.display]="(task.status == 1)? 'inline-block' : 'none'">
+                        <div class="firstStatusButton" (click)="changeTaskColor(task.id, 3, 'Отменена ')">
                             <object type="image/svg+xml" data="../../assets/krestik.svg" width="25"></object>
                         </div>
-                        <div class="secondStatusButton">
+                        <div class="secondStatusButton" (click)="changeTaskColor(task.id, 2, 'Завершена ')">
                             <object type="image/svg+xml" data="../../assets/galochka.svg" width="25"></object>
                         </div> 
                     </div> 
-                </div>
-                <div>
+
                     <div class="fieldOfDate">
                         <span>{{task.date}}</span>
                     </div>
+
                     <div class="placeForChanges">
-                        <span></span>
+                        <span>{{task.descOfStatus}}</span>
                     </div>
                 </div>
+
             </div>
+
             <div class="deleteButton" (click)="deleteTask(task)">
                 <object type="image/svg+xml" data="../../assets/musorka.svg" width="40"></object>
             </div>
+
         </div>
     </div>
 </div>

@@ -10,14 +10,12 @@
 
 .firstDiv ul {
     margin: auto;
-    width: 940px;
-    height: 21px;
-    margin:0;
     padding: 0;
+    display: flex;
+
 }
 
 .firstDiv ul li {
-    float: left;
     list-style: none;
     margin-top: 0;
 }
@@ -32,7 +30,6 @@
 }
 
 .futureForm {
-    display: block; 
     width: calc(100% - 40px);
     margin: 0 auto;
     padding:5px 10px;

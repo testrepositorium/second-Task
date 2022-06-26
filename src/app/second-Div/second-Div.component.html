@@ -1,11 +1,16 @@
 <div class="secondDiv"> 
     <div class="objectsFromSecondDiv">
-        <label for="someCheck0" class="filterText">Отмененная</label><input type="checkbox" name="someCheck0" checked class="someCheck0" id="zeroCheckBox" onclick="ckeckOfCkeckBoxes()">
-        <label for="someCheck1" class="filterText">Завершенная</label><input type="checkbox" name="someCheck1" checked class="someCheck1" id="firstCheckBox" onclick="ckeckOfCkeckBoxes()">
-        <label for="someCheck2" class="filterText">Низкий</label><input type="checkbox" name="someCheck2" checked  class="someCheck2" id="secondCheckBox" onclick="ckeckOfCkeckBoxes()">
-        <label for="someCheck3" class="filterText">Средний</label><input type="checkbox" name="someCheck3" checked  class="someCheck3" id="thirdCheckBox" onclick="ckeckOfCkeckBoxes()">
-        <label for="someCheck4" class="filterText">Высокий</label><input type="checkbox" name="someCheck4" checked  class="someCheck4" id="fourthCheckBox"onclick="ckeckOfCkeckBoxes()">
+        <label for="someCheck0" class="filterText">Отмененная</label>
+        <input type="checkbox" name="someCheck0" checked  class="someCheck0" (change)="checkValue($event, 0, '3')"/>
+        <label for="someCheck1" class="filterText">Завершенная</label>
+        <input type="checkbox" name="someCheck1" checked class="someCheck1" (change)="checkValue($event, 1, '2')">
+        <label for="someCheck2" class="filterText">Низкий</label>
+        <input type="checkbox" name="someCheck2" checked  class="someCheck2" (change)="checkValue($event, 2, 'Низкий')">
+        <label for="someCheck3" class="filterText">Средний</label>
+        <input type="checkbox" name="someCheck3" checked  class="someCheck3" (change)="checkValue($event, 3, 'Средний')">
+        <label for="someCheck4" class="filterText">Высокий</label>
+        <input type="checkbox" name="someCheck4" checked  class="someCheck4" (change)="checkValue($event, 4, 'Высокий')">
         <label id="labelFDate" for="firstButton">Сортировка по дате:</label> 
-        <input type="button" name="firstButton" class="buttonForFilter" onclick="sortByDate()" value="По убыванию">
+        <input type="button" name="firstButton" class="buttonForFilter" (click)="sortByDate()" [(ngModel)]="buttonDescription">
     </div>
 </div>
