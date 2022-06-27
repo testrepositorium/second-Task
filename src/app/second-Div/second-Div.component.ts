@@ -20,8 +20,10 @@ export class SecondComponent {
         this.filterService.reverseArray(this.theOrder);
         if(this.buttonDescription == 'По возрастанию'){
             this.buttonDescription = 'По убыванию';
+            this.theOrder = 'reverse';
         } else  {
             this.buttonDescription = 'По возрастанию';
+            this.theOrder = 'normal';
         }
     }
 

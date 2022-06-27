@@ -21,6 +21,7 @@ export class ThirdComponent implements OnInit {
     visibilityArray: boolean[] = [];
 
     arrayForChecks: string[] = ['3','2','Низкий','Средний','Высокий'];
+    statusOfReverse: string = 'normal';
 
     constructor(public service: AllTasksService, public filterService: FiltersService) {}
 
@@ -53,51 +54,49 @@ export class ThirdComponent implements OnInit {
         this.service.changeData(id, objectForChange);
     }
 
-    makeTrueArray(): void {
-        this.arrayOfTasks = this.arrayOfCompletedTasks.concat(this.arrayOfActiveTasks, this.arrayOfCanceledTasks);
-    }
-
-    makeAllFilters(): void {
-        this.arrayOfCompletedTasks.reverse();
-        this.arrayOfActiveTasks.reverse();
-        this.arrayOfCanceledTasks.reverse();
-        this.makeTrueArray();
-    }
-
     makeArrays(data: any): void {
         this.arrayOfActiveTasks = [];
-            this.arrayOfCanceledTasks = []; 
-            this.arrayOfCompletedTasks = [];
-            if (data != null && data.length > 0) {
-                for (let i = 0; i<=data.length - 1; ++i) {
-                    if (data[i].status == this.arrayForChecks[0] || data[i].status == this.arrayForChecks[1] || data[i].priority == this.arrayForChecks[2] || data[i].priority == this.arrayForChecks[3] || data[i].priority == this.arrayForChecks[4]) {
-                            switch(data[i].status) {
-                            case 1:
-                                this.arrayOfActiveTasks.push(data[i]);
-                                break;
-                            case 2:
-                                this.arrayOfCompletedTasks.push(data[i]);
-                                break;
-                            default:
-                                this.arrayOfCanceledTasks.push(data[i]);
+        this.arrayOfCanceledTasks = []; 
+        this.arrayOfCompletedTasks = [];
+        if (data != null && data.length > 0) {
+            for (let i = 0; i<=data.length - 1; ++i) {
+                if (data[i].status == this.arrayForChecks[0] || data[i].status == this.arrayForChecks[1] || data[i].priority == this.arrayForChecks[2] || data[i].priority == this.arrayForChecks[3] || data[i].priority == this.arrayForChecks[4]) {
+                        switch(data[i].status) {
+                        case 1:
+                            this.arrayOfActiveTasks.push(data[i]);
+                            break;
+                        case 2:
+                            this.arrayOfCompletedTasks.push(data[i]);
+                            break;                            
+                        default:
+                            this.arrayOfCanceledTasks.push(data[i]);
                         }
-                    }
-                }
-                for (let i = 0; i<=data[data.length-1].id-1; ++i){
-                    this.visibilityArray[i] =  false;
                 }
             }
-            this.makeTrueArray();
+            if (this.statusOfReverse == 'reverse') {
+                this.arrayOfCompletedTasks.reverse();
+                this.arrayOfActiveTasks.reverse();
+                this.arrayOfCanceledTasks.reverse();  
+            }
+            for (let i = 0; i<=data[data.length-1].id-1; ++i){
+                this.visibilityArray[i] =  false;
+            }
+        }
+        this.arrayOfTasks = this.arrayOfCompletedTasks.concat(this.arrayOfActiveTasks, this.arrayOfCanceledTasks);
     }
     
     ngOnInit(): void{
+
         this.service.getData();
         this.service.data$.subscribe((data: any) => {
             this.makeArrays(data);
         });
+
         this.filterService.data$.subscribe((theOrder: string) => {
-            this.makeAllFilters();
+            this.statusOfReverse = theOrder;
+            this.service.getData();
         });
+
         this.filterService.checks$.subscribe((allCheckBoxes: string[]) => {
             if (allCheckBoxes != null) {
                 for(let i = 0; i<=4; ++i) {
@@ -106,5 +105,6 @@ export class ThirdComponent implements OnInit {
                 this.service.getData();
             }
         });
+
     }
 }
