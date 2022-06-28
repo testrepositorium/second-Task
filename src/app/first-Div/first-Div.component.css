@@ -35,9 +35,26 @@
     padding:5px 10px;
 }
 
-input[name=inputForTask]  {
+.selectBox {
+    width: 150px;
+    display:inline-block
+}
+
+.inputForTaskDescription {
     margin-left: 20px;
     width: 545px;
+    display: inline-block;
+} 
+
+.mainGreenButton {
+    width: 150px;
+    background: #029b29;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-left: 35px;
+    margin-bottom: 2px;
 }
 
 button[someProperty=nameForUnusualProperty] {
@@ -46,7 +63,7 @@ button[someProperty=nameForUnusualProperty] {
     color: #fff;
     border: none;
     border-radius: 2px;
-    height: 20px;
+    height: 24px;
     cursor: pointer;
     margin-left: 26px;
 }

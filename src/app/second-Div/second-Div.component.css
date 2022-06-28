@@ -11,24 +11,32 @@
     padding-top: 20px;
     padding-bottom: 20px;
     display: flex;
+    align-items: center;
 }
 
 .filterText {
     color: #909090;
 }
 
-input[type=checkbox] {
+.someCheck {
     margin-right: 10px;
 }
 
 label[for=firstButton] {
-    text-align: center;
-    margin: 0 15px 0 142px;
+    margin: 0 15px 0 110px;
+    width: 140px;
 }
 
-input[name=firstButton] {
+.buttonForFilter:hover {
+    background: #ffd;
+}
+
+.buttonForFilter:active  {
+    background: #ff5;
+}
+
+.buttonForFilter {
     width: 150px;
-    height: 19px;
     background: #fff;
     border: none;
     border-radius: 2px;
@@ -36,13 +44,5 @@ input[name=firstButton] {
     text-align: center;
     cursor: pointer;
     transition: 0.2s; /*Плавное нажатие*/
-    
-}
-
-input[name=firstButton]:hover {
-    background: #ffd;
-}
-
-input[name=firstButton]:active {
-    background: #ff5;
+    display: inline-block;
 }

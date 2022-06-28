@@ -4,14 +4,14 @@
             <li>Приоритет:</li>
             <li>Текст задачи:</li> 
         </ul>
-        <select id="priority" [(ngModel)]="priority"> 
-            <option value="Низкий">Низкий</option>
-            <option value="Средний">Средний</option>
-            <option value="Высокий">Высокий</option>
-        </select>
-        <input type="text" name="inputForTask" placeholder="Введите текст..." [(ngModel)]="description" /> 
-        <button type="button" (click)="addNewTask()" someProperty="nameForUnusualProperty">Добавить задачу...</button>
-        <!-- <dx-button type="button" (onClick)="addNewTask()" someProperty="nameForUnusualProperty" text="Добавить задачу..."></dx-button> -->
+        <dx-select-box [items]="statuses" placeholder="Выберите..." class="selectBox" [value]="statuses[0]" (onValueChanged)="onValueChanged($event)"></dx-select-box>
+        <dx-text-box [(value)]="description" placeholder="Введите текст задачи" class="inputForTaskDescription">
+            <dx-validator
+                [validationRules]="[{
+                    type: 'required',
+                    message: 'Описание задачи не может быть пустым' }]">
+            </dx-validator>
+        </dx-text-box>
+        <dx-button [useSubmitBehavior]="true" (onClick)="addNewTask($event)" class="mainGreenButton" text="Добавить..."></dx-button>
     </div> 
 </div>
-<app-special-window></app-special-window>

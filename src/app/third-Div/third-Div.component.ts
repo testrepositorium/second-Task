@@ -13,6 +13,7 @@ import { FiltersService } from '../filters.service';
 export class ThirdComponent implements OnInit {
 
     public arrayOfTasks: any[] = [];
+    lastArrayFromBack: any[] = [];
 
     arrayOfCompletedTasks: any[] = [];
     arrayOfActiveTasks: any[] = [];
@@ -24,6 +25,30 @@ export class ThirdComponent implements OnInit {
     statusOfReverse: string = 'normal';
 
     constructor(public service: AllTasksService, public filterService: FiltersService) {}
+
+    ngOnInit(): void{
+
+        this.service.getData();
+        this.service.data$.subscribe((data: any) => {
+            this.lastArrayFromBack = data;
+            this.makeArrays(this.lastArrayFromBack);
+        });
+
+        this.filterService.data$.subscribe((theOrder: string) => {
+            this.statusOfReverse = theOrder;
+            this.makeArrays(this.lastArrayFromBack);
+        });
+
+        this.filterService.checks$.subscribe((allCheckBoxes: string[]) => {
+            if (allCheckBoxes != null) {
+                for(let i = 0; i<=4; ++i) {
+                    this.arrayForChecks[i] = allCheckBoxes[i];
+                }
+                this.makeArrays(this.lastArrayFromBack);
+            }
+        });
+
+    }
 
     deleteTask(data: any) : void {
         this.service.deleteData(data);
@@ -85,26 +110,4 @@ export class ThirdComponent implements OnInit {
         this.arrayOfTasks = this.arrayOfCompletedTasks.concat(this.arrayOfActiveTasks, this.arrayOfCanceledTasks);
     }
     
-    ngOnInit(): void{
-
-        this.service.getData();
-        this.service.data$.subscribe((data: any) => {
-            this.makeArrays(data);
-        });
-
-        this.filterService.data$.subscribe((theOrder: string) => {
-            this.statusOfReverse = theOrder;
-            this.service.getData();
-        });
-
-        this.filterService.checks$.subscribe((allCheckBoxes: string[]) => {
-            if (allCheckBoxes != null) {
-                for(let i = 0; i<=4; ++i) {
-                    this.arrayForChecks[i] = allCheckBoxes[i];
-                }
-                this.service.getData();
-            }
-        });
-
-    }
 }

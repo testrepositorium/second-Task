@@ -18,12 +18,20 @@
                     </div>
 
                     <div class="secretField" [ngClass]="{invisibleField: checkVisibility(task.id, 'second')}">
-                        <div class="newElement1">
+                        <dx-text-box [(value)]="task.description" class="newFieldsForInf">
+                            <dx-validator
+                                [validationRules]="[{
+                                    type: 'required',
+                                    message: 'Описание задачи не может быть пустым' }]">
+                            </dx-validator>
+                        </dx-text-box>
+                        <dx-button [useSubmitBehavior]="true" (onClick)="change(task.id)" class="commitButton" text="Ок"></dx-button>
+                        <!-- <div class="newElement1">
                             <input type="text" class="newFieldsForInf" [(ngModel)]="task.description">
                         </div>
                         <div class="newElement2">
                             <button type="button" (click)="change(task.id)">Ок</button> 
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="statusButtons" [style.display]="(task.status == 1)? 'inline-block' : 'none'">

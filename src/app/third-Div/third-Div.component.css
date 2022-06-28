@@ -60,7 +60,7 @@
 .taskInformation, .secretField {
     width: calc(100% - 40px);
     margin-right: 5px;
-    min-height: 60px;
+    min-height: 65px;
     font-weight: bolder;
 }
 
@@ -75,9 +75,9 @@
 .newFieldsForInf {
     font-size: 17px;
     font-family: Arial, Helvetica, sans-serif;
-    margin: 0 5px 26px 0;
+    /* margin: 0 5px 26px 0; */
+    margin-right: 10px;
     padding-left: 0 !important;
-    min-height: 30px;
     border-radius: 10px;
     border: 1px solid black;
     width: 400px;
@@ -87,27 +87,29 @@
     display: inline-block;
 }
 
-.newElement1, .newElement2 {
+.newFieldsForInf, .commitButton {
     display: inline-block;
+    align-items: center;
 }
 
 object {
     pointer-events: none;
 }
 
-.newElement2 button {
-    width: 30px;
-    height: 30px;
+.commitButton {
     border-radius: 10px;
     border: 0.5px solid black;
     cursor: pointer;
+    padding: 0;
+    height: 39px;
+    margin-bottom: 5px;
 }
 
-.newElement2 button:hover {
+.commitButton:hover {
     background: #e1eee1e1;
 }
 
-.newElement2 button:active {
+.commitButton:active {
     background: #e1e1e1;
     transform: scale(0.9);
     transition: 0.2s;

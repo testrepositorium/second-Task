@@ -16,19 +16,20 @@ export class SecondComponent {
 
     constructor(public filterService: FiltersService) {}
 
-    sortByDate(): void {
+    sortByDate(event: any): void {
         this.filterService.reverseArray(this.theOrder);
-        if(this.buttonDescription == 'По возрастанию'){
-            this.buttonDescription = 'По убыванию';
-            this.theOrder = 'reverse';
-        } else  {
-            this.buttonDescription = 'По возрастанию';
+        if(event.component.option('text') == 'По возрастанию'){
+            event.component.option('text','По убыванию');
             this.theOrder = 'normal';
+        } else  {
+            event.component.option('text','По возрастанию');
+            this.theOrder = 'reverse';
         }
+        console.log(event.component.option('text'));  // Свойство меняется, а описание у кнопки все равно остается прежним
     }
 
     checkValue(event: any, index: number, value: string): void{
-        if (event.currentTarget.checked == true) {
+        if (event.value == true) {
             this.checkedInputs[index] = value;
         } else {
             this.checkedInputs[index] = '';

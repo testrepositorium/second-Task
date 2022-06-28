@@ -8,8 +8,7 @@ import { AppComponent } from './app.component';
 import { FirstComponent } from './first-Div/first-Div.component';
 import { SecondComponent } from './second-Div/second-Div.component';
 import { ThirdComponent } from './third-Div/third-Div.component';
-import { SpecialWindowComponent } from './special-window/special-window.component';
-import { DxButtonModule } from 'devextreme-angular';
+import { DevExtremeModule } from 'devextreme-angular';
 
 @NgModule({
   declarations: [
@@ -17,14 +16,13 @@ import { DxButtonModule } from 'devextreme-angular';
     FirstComponent,
     SecondComponent,
     ThirdComponent,
-    SpecialWindowComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    DxButtonModule
+    DevExtremeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
