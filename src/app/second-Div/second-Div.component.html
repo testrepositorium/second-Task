@@ -1,16 +1,66 @@
 <div class="secondDiv"> 
     <div class="objectsFromSecondDiv">
-        <label for="someCheck0" class="filterText">Отмененная</label>
-        <dx-check-box [value]="true"  class="someCheck" (onValueChanged)="checkValue($event, 0, '3')"></dx-check-box>
-        <label for="someCheck1" class="filterText">Завершенная</label>
-        <dx-check-box [value]="true"  class="someCheck" (onValueChanged)="checkValue($event, 1, '2')"></dx-check-box>
-        <label for="someCheck2" class="filterText">Низкий</label>
-        <dx-check-box [value]="true"  class="someCheck" (onValueChanged)="checkValue($event, 2, 'Низкий')"></dx-check-box>
-        <label for="someCheck3" class="filterText">Средний</label>
-        <dx-check-box [value]="true"  class="someCheck" (onValueChanged)="checkValue($event, 3, 'Средний')"></dx-check-box>
-        <label for="someCheck4" class="filterText">Высокий</label>
-        <dx-check-box [value]="true"  class="someCheck" (onValueChanged)="checkValue($event, 4, 'Высокий')"></dx-check-box>
-        <label id="labelFDate" for="firstButton">Сортировка по дате:</label> 
-        <dx-button text="По возрастанию" class="buttonForFilter" (onClick)="sortByDate($event)"></dx-button>
+
+        <div class="leftPart">
+            <div class="topLine">
+
+                <dx-check-box 
+                    [value]="true"  
+                    class="someCheck" 
+                    (onValueChanged)="checkValue($event, 0, '1')" 
+                    text="Активная">
+                </dx-check-box>
+
+                <dx-check-box 
+                    [value]="true"  
+                    class="someCheck" 
+                    (onValueChanged)="checkValue($event, 1, '3')" 
+                    text="Отмененная">
+                </dx-check-box>
+
+                <dx-check-box 
+                    [value]="true"  
+                    class="someCheck" 
+                    (onValueChanged)="checkValue($event, 2, '2')" 
+                    text="Завершенная">
+                </dx-check-box>
+
+            </div>
+
+            <div class="bottomLine">
+
+                <dx-check-box 
+                    [value]="true"  
+                    class="someCheck" 
+                    (onValueChanged)="checkValue($event, 3, 'Низкий')" 
+                    text="Низкий">
+                </dx-check-box>
+
+                <dx-check-box 
+                    [value]="true"  
+                    class="someCheck" 
+                    (onValueChanged)="checkValue($event, 4, 'Средний')" 
+                    text="Средний">
+                </dx-check-box>
+
+                <dx-check-box 
+                    [value]="true"  
+                    class="someCheck" 
+                    (onValueChanged)="checkValue($event, 5, 'Высокий')" 
+                    text="Высокий">
+                </dx-check-box>
+
+            </div>
+        </div>
+
+        <div class="rightPart">
+            <span class="theOldLable">Сортировка по дате:</span> 
+            <dx-button
+                [text]="buttonDescription" 
+                class="buttonForFilter" 
+                (onClick)="sortByDate()">
+            </dx-button>
+        </div>
+
     </div>
 </div>

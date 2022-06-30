@@ -1,0 +1,138 @@
+.thirdDiv {
+    width: 940px;
+    height: 680px;
+    background: #e4e4e4;
+    margin: 0 auto;
+    border-radius: 2px;
+    padding-top:30px;
+
+    .tasksList {
+        width: calc(100% - 90px);
+        height: 630px;
+        overflow-y: auto;
+        margin: 0 auto;
+
+        .Task {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            .priorityOfTask {
+                width: 50px;
+                height: 80px;
+                line-height: 80px;
+            }
+
+            .mainField {
+                background: white;
+                border-radius: 10px;
+                padding: 5px;
+                min-height: 70px;
+                cursor: pointer;
+                width: 600px;
+
+                .taskInformation {
+                    font-size: 17px;
+                    overflow-wrap: break-word;
+
+                    .fieldOfInforamtion {
+                        font-size: 17px;
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-weight: bolder;
+                        margin-bottom: 20px;
+                        min-height: 40px;
+                    }
+                }
+
+                .newFieldsForInf {
+                    font-size: 17px;
+                    font-family: Arial, Helvetica, sans-serif;
+                    /* margin: 0 5px 26px 0; */
+                    margin-right: 10px;
+                    padding-left: 0 !important;
+                    border-radius: 10px;
+                    border: 1px solid black;
+                    width: 400px;
+                }
+
+                .commitButton {
+                    border-radius: 10px;
+                    border: 0.5px solid black;
+                    cursor: pointer;
+                    padding: 0;
+                    height: 36px;
+                    width: 40px;
+                    margin-bottom: 4px;
+                }
+                
+                .commitButton:hover {
+                    background: #e1eee1e1;
+                }
+                
+                .commitButton:active {
+                    background: #e1e1e1;
+                    transform: scale(0.9);
+                    transition: 0.2s;
+                }
+
+                ::ng-deep .dx-button-content {
+                    padding: 2px 0 !important;
+                    border: none !important;
+                    border-radius: 3px !important;
+                }
+
+                .firstStatusButton, .secondStatusButton {
+                    margin-bottom: 5px;
+                    width: 25px;
+                    height: 25px;
+                    cursor: pointer;
+
+                    object {
+                        pointer-events: none;
+                    }
+                }
+
+                .newFieldsForInf, .commitButton {
+                    display: inline-block;
+                    align-items: center;
+                }
+
+                .taskInformation, .secretField {
+                    width: calc(100% - 40px);
+                    margin-right: 5px;
+                    min-height: 65px;
+                    font-weight: bolder;
+                }
+
+                .taskInformation, .secretField, .statusButtons {
+                    display: inline-block;
+                    vertical-align: top;
+                }
+
+                .fieldOfDate, .placeForChanges {
+                    display: inline-block;
+                }
+
+                .fieldOfDate {
+                    font-size: 10px;
+                    padding-top: 10px;
+                    width: 290px;
+                }
+                
+                .placeForChanges {
+                    width:300px;
+                    text-align: right;
+                }
+                
+                .invisibleField {
+                    display: none;
+                }
+            }
+
+            .deleteButton {
+                cursor: pointer;
+            }
+        }
+    }
+}

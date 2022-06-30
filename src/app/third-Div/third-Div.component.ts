@@ -1,19 +1,23 @@
 import {Component, OnInit} from '@angular/core';
-import { AllTasksService } from '../allTasks.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { formatDate } from '@angular/common';
+
+import { AllTasksService } from '../allTasks.service';
 import { FiltersService } from '../filters.service';
+
 
 
 @Component({
     selector: 'third-comp',
     templateUrl: './third-Div.component.html',
-    styleUrls: ['./third-Div.component.css']
+    styleUrls: ['./third-Div.component.scss']
 })
 
 export class ThirdComponent implements OnInit {
 
     public arrayOfTasks: any[] = [];
     lastArrayFromBack: any[] = [];
+    fakeArray: any[] = [];
 
     arrayOfCompletedTasks: any[] = [];
     arrayOfActiveTasks: any[] = [];
@@ -21,10 +25,18 @@ export class ThirdComponent implements OnInit {
 
     visibilityArray: boolean[] = [];
 
-    arrayForChecks: string[] = ['3','2','Низкий','Средний','Высокий'];
+    arrayForChecks: string[] = ['1','3','2','Низкий','Средний','Высокий'];
     statusOfReverse: string = 'normal';
 
-    constructor(public service: AllTasksService, public filterService: FiltersService) {}
+    isCorrect: boolean = true;
+
+    newForm: FormGroup;
+
+    constructor(public service: AllTasksService, public filterService: FiltersService) {
+        this.newForm = new FormGroup({
+            "newDescription": new FormControl("", Validators.required) 
+        }); //Интересно, а можно ли как-то в качестве дефолтного значения задавать какое-то значение динамически?
+    }
 
     ngOnInit(): void{
 
@@ -41,7 +53,7 @@ export class ThirdComponent implements OnInit {
 
         this.filterService.checks$.subscribe((allCheckBoxes: string[]) => {
             if (allCheckBoxes != null) {
-                for(let i = 0; i<=4; ++i) {
+                for(let i = 0; i<=5; ++i) {
                     this.arrayForChecks[i] = allCheckBoxes[i];
                 }
                 this.makeArrays(this.lastArrayFromBack);
@@ -59,8 +71,15 @@ export class ThirdComponent implements OnInit {
     };
 
     change(id: number): void{
-        let objectForChange = this.arrayOfTasks.find((task) => task.id == id);
-        this.service.changeData(id, objectForChange);
+        if (this.newForm.valid) {
+            this.isCorrect = true;
+            let objectForChange = this.arrayOfTasks.find((task) => task.id == id);
+            objectForChange.description = this.newForm.controls['newDescription'].value;
+            this.service.changeData(id, objectForChange);
+            this.newForm.reset();
+        } else {
+            this.isCorrect = false;
+        }
     }
 
     checkVisibility(data1:number, data2: string) {
@@ -85,7 +104,8 @@ export class ThirdComponent implements OnInit {
         this.arrayOfCompletedTasks = [];
         if (data != null && data.length > 0) {
             for (let i = 0; i<=data.length - 1; ++i) {
-                if (data[i].status == this.arrayForChecks[0] || data[i].status == this.arrayForChecks[1] || data[i].priority == this.arrayForChecks[2] || data[i].priority == this.arrayForChecks[3] || data[i].priority == this.arrayForChecks[4]) {
+                if (data[i].status == this.arrayForChecks[0] || data[i].status == this.arrayForChecks[1] || data[i].status == this.arrayForChecks[2]) {
+                    if (data[i].priority == this.arrayForChecks[3] || data[i].priority == this.arrayForChecks[4] || data[i].priority == this.arrayForChecks[5]) {
                         switch(data[i].status) {
                         case 1:
                             this.arrayOfActiveTasks.push(data[i]);
@@ -96,6 +116,7 @@ export class ThirdComponent implements OnInit {
                         default:
                             this.arrayOfCanceledTasks.push(data[i]);
                         }
+                    }
                 }
             }
             if (this.statusOfReverse == 'reverse') {
@@ -108,6 +129,7 @@ export class ThirdComponent implements OnInit {
             }
         }
         this.arrayOfTasks = this.arrayOfCompletedTasks.concat(this.arrayOfActiveTasks, this.arrayOfCanceledTasks);
+        this.fakeArray = this.arrayForChecks.slice();
     }
     
 }

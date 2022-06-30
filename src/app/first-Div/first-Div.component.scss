@@ -1,0 +1,88 @@
+.firstDiv {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 940px;
+    height: 70px;
+    background: #e4e4e4;
+    border-radius: 2px;
+    color: #949494;
+
+    select {
+        width: 150px;
+    }
+
+    .futureForm {
+        width: calc(100% - 40px);
+        margin: 0 auto;
+        padding:5px 10px;
+
+        ul {
+            margin: auto;
+            padding: 0;
+            display: flex;
+
+            li {
+                list-style: none;
+                margin-top: 0;
+            }
+
+            li:first-child {
+                width: 150px;
+            }
+
+            li:nth-child(2){
+                width: 590px;
+                margin-left: 20px;
+            }
+        }
+
+        .selectBox {
+            width: 150px;
+            display:inline-block
+        }
+
+        .inputForTaskDescription {
+            margin-left: 20px;
+            width: 545px;
+            display: inline-block;
+        }
+
+        .redLine {
+            border: 2px solid red;
+        }
+
+        .redLine {
+            border: 2px solid red;
+        }
+
+        .mainGreenButton {
+            width: 150px;
+            background: #029b29;
+            color: #fff;
+            margin-left: 35px;
+            margin-bottom: 2px;
+        }
+        
+        ::ng-deep .dx-texteditor-input {
+            /* color: red; <--- Весьма интересно, что это свойство работает, а вот свойство ниже - нет*/
+            height: 23px !important;
+        }
+        
+        ::ng-deep .dx-button-content {
+            padding: 2px 0 !important;
+            border: none !important;
+            border-radius: 3px !important;
+        }
+        
+        .mainGreenButton:active {
+            transform: scale(1.1);
+            transition: 0.4s;
+        }
+        
+        .mainGreenButton:hover {
+            transition: 0.8s;
+            transform: scale(1.3);
+            background: #00671b;
+        }
+    }
+}

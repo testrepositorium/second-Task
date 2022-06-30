@@ -1,17 +1,30 @@
 <div class="firstDiv"> 
-    <div class="futureForm"> 
+    <div class="futureForm" [formGroup]="myForm"> 
         <ul>
             <li>Приоритет:</li>
             <li>Текст задачи:</li> 
         </ul>
-        <dx-select-box [items]="statuses" placeholder="Выберите..." class="selectBox" [value]="statuses[0]" (onValueChanged)="onValueChanged($event)"></dx-select-box>
-        <dx-text-box [(value)]="description" placeholder="Введите текст задачи" class="inputForTaskDescription">
-            <dx-validator
-                [validationRules]="[{
-                    type: 'required',
-                    message: 'Описание задачи не может быть пустым' }]">
-            </dx-validator>
+
+        <dx-select-box 
+            [items]="statuses" 
+            placeholder="Выберите"
+            class="selectBox" 
+            formControlName="priorityOfTask">
+        </dx-select-box>
+
+        <!-- Попробуй вот здесь ниже добавть [ngClass]="redLine:isCorrect"...у меня все сломается сразу же -->
+        <dx-text-box
+            formControlName="descriptionOfTask" 
+            placeholder="Введите описание задачи" 
+            class="inputForTaskDescription"
+            [style.border]="isCorrect? 'none' : '2px solid red'"
+            [style.background]="isCorrect? 'white' : 'rgb(247, 171, 166)'">
         </dx-text-box>
-        <dx-button [useSubmitBehavior]="true" (onClick)="addNewTask($event)" class="mainGreenButton" text="Добавить..."></dx-button>
+
+        <dx-button  
+            (onClick)="addNewTask()" 
+            class="mainGreenButton" 
+            text="Добавить...">
+        </dx-button>
     </div> 
 </div>

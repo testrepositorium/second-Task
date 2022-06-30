@@ -1,0 +1,53 @@
+.secondDiv{
+    margin: 10px auto;
+    background: #e4e4e4;
+    width: 900px;
+    border-radius: 2px;
+    padding: 0 20px;
+    height: 70px;
+
+    .objectsFromSecondDiv {
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+
+        .someCheck {
+            margin-right: 10px;
+            width: 114px;
+        }
+
+        .rightPart {
+            width: calc(100% - 372px);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            .buttonForFilter:hover {
+                background: #ffd;
+            }
+            
+            .buttonForFilter:active  {
+                background: #ff5;
+            }
+            
+            .buttonForFilter {
+                margin-left: 20px;
+                width: 150px;
+                background: #fff;
+                border: none;
+                border-radius: 2px;
+                text-align: left;
+                text-align: center;
+                cursor: pointer;
+                transition: 0.2s; /*Плавное нажатие*/
+                display: inline-block;
+            }
+
+            ::ng-deep .dx-button-content {
+                padding: 2px 0 !important;
+                border: none !important;
+                border-radius: 3px !important;
+            }
+        }
+    }
+}

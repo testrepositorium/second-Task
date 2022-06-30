@@ -1,6 +1,6 @@
 import { formatDate } from '@angular/common';
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import { DxSelectBoxComponent } from 'devextreme-angular';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { AllTasks } from '../allTasks.interface';
 import { AllTasksService } from '../allTasks.service';
@@ -8,19 +8,24 @@ import { AllTasksService } from '../allTasks.service';
 @Component({
     selector: 'first-comp',
     templateUrl: './first-Div.component.html',
-    styleUrls: ['./first-Div.component.css']
+    styleUrls: ['./first-Div.component.scss']
 })
 
 export class FirstComponent implements OnInit, OnDestroy {
     
-    description: string = '';
-    priority: string = 'Низкий';
     statuses: string[] = ['Низкий', 'Средний', 'Высокий'];
 
     firstPartOfTime: string = '';
     secondPartOfTime: string = '';
+    myForm: FormGroup;
+    isCorrect: boolean = true;
 
-    constructor(public service: AllTasksService) {}
+    constructor(public service: AllTasksService) {
+        this.myForm = new FormGroup({
+            "descriptionOfTask": new FormControl("", Validators.required),
+            "priorityOfTask": new FormControl("Низкий", Validators.required),
+        });
+    }
 
     ngOnInit(): void {
         
@@ -32,22 +37,21 @@ export class FirstComponent implements OnInit, OnDestroy {
         this.secondPartOfTime = formatDate(currentTime, 'HH:mm','en-US', '+0300') + '';
     }
 
-    onValueChanged(e: any) {
-        this.priority = e.value;
-    }
-
-    public addNewTask(params: any): void {
-        if (params.validationGroup.validate().isValid) {
+    public addNewTask(): void {
+        if (this.myForm.valid) { 
+            this.isCorrect = true;
             this.makeDate();
             let someTask: AllTasks = {
-                description: this.description,
-                priority: this.priority,
+                description: this.myForm.controls['descriptionOfTask'].value,
+                priority: this.myForm.controls['priorityOfTask'].value,
                 status: 1,
                 date: this.firstPartOfTime + ' ' + this.secondPartOfTime,
                 descOfStatus: '',
             }
             this.service.postData(someTask);
-            this.description = "";
+            this.myForm.controls['descriptionOfTask'].reset();
+        } else {
+            this.isCorrect = false;
         }
     }
 
