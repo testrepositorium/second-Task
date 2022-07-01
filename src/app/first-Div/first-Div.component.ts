@@ -22,13 +22,16 @@ export class FirstComponent implements OnInit, OnDestroy {
 
     constructor(public service: AllTasksService) {
         this.myForm = new FormGroup({
-            "descriptionOfTask": new FormControl("", Validators.required),
-            "priorityOfTask": new FormControl("Низкий", Validators.required),
+            descriptionOfTask: new FormControl('', Validators.required),
+            priorityOfTask: new FormControl('', Validators.required),
         });
     }
 
     ngOnInit(): void {
-        
+        this.myForm.setValue({
+            descriptionOfTask: '',
+            priorityOfTask: 'Низкий'
+        })
     }
 
     makeDate(): void{

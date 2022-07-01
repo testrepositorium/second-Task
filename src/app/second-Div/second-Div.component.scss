@@ -1,4 +1,4 @@
-.secondDiv{
+.second-div{
     margin: 10px auto;
     background: #e4e4e4;
     width: 900px;
@@ -6,31 +6,31 @@
     padding: 0 20px;
     height: 70px;
 
-    .objectsFromSecondDiv {
+    .objects-from-second-div {
         padding: 10px 0;
         display: flex;
         align-items: center;
 
-        .someCheck {
+        .some-check {
             margin-right: 10px;
             width: 114px;
         }
 
-        .rightPart {
+        .right-part {
             width: calc(100% - 372px);
             display: flex;
             align-items: center;
             justify-content: flex-end;
 
-            .buttonForFilter:hover {
+            .button-for-filter:hover {
                 background: #ffd;
             }
             
-            .buttonForFilter:active  {
+            .button-for-filter:active  {
                 background: #ff5;
             }
             
-            .buttonForFilter {
+            .button-for-filter {
                 margin-left: 20px;
                 width: 150px;
                 background: #fff;

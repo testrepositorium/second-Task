@@ -1,5 +1,5 @@
-<div class="firstDiv"> 
-    <div class="futureForm" [formGroup]="myForm"> 
+<div class="first-div"> 
+    <div class="future-form" [formGroup]="myForm"> 
         <ul>
             <li>Приоритет:</li>
             <li>Текст задачи:</li> 
@@ -8,7 +8,7 @@
         <dx-select-box 
             [items]="statuses" 
             placeholder="Выберите"
-            class="selectBox" 
+            class="select-box" 
             formControlName="priorityOfTask">
         </dx-select-box>
 
@@ -16,14 +16,14 @@
         <dx-text-box
             formControlName="descriptionOfTask" 
             placeholder="Введите описание задачи" 
-            class="inputForTaskDescription"
+            class="input-for-task-description"
             [style.border]="isCorrect? 'none' : '2px solid red'"
             [style.background]="isCorrect? 'white' : 'rgb(247, 171, 166)'">
         </dx-text-box>
 
         <dx-button  
             (onClick)="addNewTask()" 
-            class="mainGreenButton" 
+            class="main-green-button" 
             text="Добавить...">
         </dx-button>
     </div> 

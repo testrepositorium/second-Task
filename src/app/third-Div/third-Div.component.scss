@@ -1,4 +1,4 @@
-.thirdDiv {
+.third-div {
     width: 940px;
     height: 680px;
     background: #e4e4e4;
@@ -6,25 +6,25 @@
     border-radius: 2px;
     padding-top:30px;
 
-    .tasksList {
+    .tasks-list {
         width: calc(100% - 90px);
         height: 630px;
         overflow-y: auto;
         margin: 0 auto;
 
-        .Task {
+        .task {
             margin-bottom: 30px;
             display: flex;
             justify-content: space-around;
             align-items: center;
 
-            .priorityOfTask {
+            .priority-of-task {
                 width: 50px;
                 height: 80px;
                 line-height: 80px;
             }
 
-            .mainField {
+            .main-field {
                 background: white;
                 border-radius: 10px;
                 padding: 5px;
@@ -32,11 +32,11 @@
                 cursor: pointer;
                 width: 600px;
 
-                .taskInformation {
+                .task-information {
                     font-size: 17px;
                     overflow-wrap: break-word;
 
-                    .fieldOfInforamtion {
+                    .field-of-inforamtion {
                         font-size: 17px;
                         font-family: Arial, Helvetica, sans-serif;
                         font-weight: bolder;
@@ -45,7 +45,7 @@
                     }
                 }
 
-                .newFieldsForInf {
+                .new-fields-for-inf {
                     font-size: 17px;
                     font-family: Arial, Helvetica, sans-serif;
                     /* margin: 0 5px 26px 0; */
@@ -56,7 +56,7 @@
                     width: 400px;
                 }
 
-                .commitButton {
+                .commit-button {
                     border-radius: 10px;
                     border: 0.5px solid black;
                     cursor: pointer;
@@ -66,11 +66,11 @@
                     margin-bottom: 4px;
                 }
                 
-                .commitButton:hover {
+                .commit-button:hover {
                     background: #e1eee1e1;
                 }
                 
-                .commitButton:active {
+                .commit-button:active {
                     background: #e1e1e1;
                     transform: scale(0.9);
                     transition: 0.2s;
@@ -82,7 +82,7 @@
                     border-radius: 3px !important;
                 }
 
-                .firstStatusButton, .secondStatusButton {
+                .first-status-button, .second-status-button {
                     margin-bottom: 5px;
                     width: 25px;
                     height: 25px;
@@ -93,44 +93,44 @@
                     }
                 }
 
-                .newFieldsForInf, .commitButton {
+                .new-fields-for-inf, .commit-button {
                     display: inline-block;
                     align-items: center;
                 }
 
-                .taskInformation, .secretField {
+                .task-information, .secret-field {
                     width: calc(100% - 40px);
                     margin-right: 5px;
                     min-height: 65px;
                     font-weight: bolder;
                 }
 
-                .taskInformation, .secretField, .statusButtons {
+                .task-information, .secret-field, .status-buttons {
                     display: inline-block;
                     vertical-align: top;
                 }
 
-                .fieldOfDate, .placeForChanges {
+                .field-of-date, .place-for-changes {
                     display: inline-block;
                 }
 
-                .fieldOfDate {
+                .field-of-date {
                     font-size: 10px;
                     padding-top: 10px;
                     width: 290px;
                 }
                 
-                .placeForChanges {
+                .place-for-changes {
                     width:300px;
                     text-align: right;
                 }
                 
-                .invisibleField {
+                .invisible-field {
                     display: none;
                 }
             }
 
-            .deleteButton {
+            .delete-button {
                 cursor: pointer;
             }
         }

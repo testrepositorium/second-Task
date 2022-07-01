@@ -1,4 +1,4 @@
-.firstDiv {
+.first-div {
     margin: 0 auto;
     margin-top: 30px;
     width: 940px;
@@ -11,7 +11,7 @@
         width: 150px;
     }
 
-    .futureForm {
+    .future-form {
         width: calc(100% - 40px);
         margin: 0 auto;
         padding:5px 10px;
@@ -36,12 +36,12 @@
             }
         }
 
-        .selectBox {
+        .select-box {
             width: 150px;
             display:inline-block
         }
 
-        .inputForTaskDescription {
+        .input-for-task-description {
             margin-left: 20px;
             width: 545px;
             display: inline-block;
@@ -55,7 +55,7 @@
             border: 2px solid red;
         }
 
-        .mainGreenButton {
+        .main-green-button {
             width: 150px;
             background: #029b29;
             color: #fff;
@@ -74,12 +74,12 @@
             border-radius: 3px !important;
         }
         
-        .mainGreenButton:active {
+        .main-green-button:active {
             transform: scale(1.1);
             transition: 0.4s;
         }
         
-        .mainGreenButton:hover {
+        .main-green-button:hover {
             transition: 0.8s;
             transform: scale(1.3);
             background: #00671b;

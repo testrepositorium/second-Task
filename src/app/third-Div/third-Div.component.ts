@@ -34,7 +34,7 @@ export class ThirdComponent implements OnInit {
 
     constructor(public service: AllTasksService, public filterService: FiltersService) {
         this.newForm = new FormGroup({
-            "newDescription": new FormControl("", Validators.required) 
+            newDescription: new FormControl('', Validators.required) 
         }); //Интересно, а можно ли как-то в качестве дефолтного значения задавать какое-то значение динамически?
     }
 
@@ -60,6 +60,10 @@ export class ThirdComponent implements OnInit {
             }
         });
 
+        this.newForm.setValue({
+            newDescription: ''
+        })
+
     }
 
     deleteTask(data: any) : void {
@@ -67,7 +71,13 @@ export class ThirdComponent implements OnInit {
     }
 
     showInput(data: any): void {
+        for (let k = 0; k < this.visibilityArray.length; ++k) {
+            this.visibilityArray[k] = false;
+        }
         this.visibilityArray[data.id-1] = !this.visibilityArray[data.id-1];
+        this.newForm.setValue({
+            newDescription: data.description
+        })
     };
 
     change(id: number): void{

@@ -1,27 +1,27 @@
-<div class="thirdDiv">
-    <div class="tasksList">
-        <div class="Task" *ngFor="let task of arrayOfTasks">
+<div class="third-div">
+    <div class="tasks-list">
+        <div class="task" *ngFor="let task of arrayOfTasks">
 
-            <div class="priorityOfTask" [ngSwitch]="task.priority">
+            <div class="priority-of-task" [ngSwitch]="task.priority">
                 <ng-template ngSwitchCase="Низкий"><span style="color:red">{{task.priority}}</span></ng-template>
                 <ng-template ngSwitchCase="Средний"><span style="color:yellow">{{task.priority}}</span></ng-template>
                 <ng-template ngSwitchCase="Высокий"><span style="color:green">{{task.priority}}</span></ng-template>
             </div>
 
-            <div class="mainField" [style.background]="(task.status == 1)? 'white': (task.status == 2)? 'rgb(156, 243, 156)' : 'rgb(243, 129, 129)'">
+            <div class="main-field" [style.background]="(task.status == 1)? 'white': (task.status == 2)? 'rgb(156, 243, 156)' : 'rgb(243, 129, 129)'">
                 
                 <div>
-                    <div class="taskInformation" [ngClass]="{invisibleField: checkVisibility(task.id, 'first')}" (click)="showInput(task)">
-                        <div class="filedOfInformation">
+                    <div class="task-information" [ngClass]="{'invisible-field': checkVisibility(task.id, 'first')}" (click)="showInput(task)">
+                        <div class="field-of-information">
                             <span>{{task.description}}</span>
                         </div>
                     </div>
 
-                    <div class="secretField" [ngClass]="{invisibleField: checkVisibility(task.id, 'second')}" [formGroup]="newForm">
+                    <div class="secret-field" [ngClass]="{'invisible-field': checkVisibility(task.id, 'second')}" [formGroup]="newForm">
 
                         <dx-text-box 
                             formControlName = "newDescription"
-                            class="newFieldsForInf"
+                            class="new-fields-for-inf"
                             [style.border]="isCorrect? '1px solid black' : '2px solid red'"
                             [style.background]="isCorrect? 'white' : 'rgb(247, 171, 166)'"
                             placeholder="Введите новое описание задачи">
@@ -30,33 +30,33 @@
                         <dx-button 
                             [useSubmitBehavior]="true" 
                             (onClick)="change(task.id)" 
-                            class="commitButton" 
+                            class="commit-button" 
                             text="Ок">
                         </dx-button>
 
                     </div>
 
-                    <div class="statusButtons" [style.display]="(task.status == 1)? 'inline-block' : 'none'">
-                        <div class="firstStatusButton" (click)="changeTaskColor(task.id, 3, 'Отменена ')">
+                    <div class="status-buttons" [style.display]="(task.status == 1)? 'inline-block' : 'none'">
+                        <div class="first-status-button" (click)="changeTaskColor(task.id, 3, 'Отменена ')">
                             <object type="image/svg+xml" data="../../assets/krestik.svg" width="25"></object>
                         </div>
-                        <div class="secondStatusButton" (click)="changeTaskColor(task.id, 2, 'Завершена ')">
+                        <div class="second-status-button" (click)="changeTaskColor(task.id, 2, 'Завершена ')">
                             <object type="image/svg+xml" data="../../assets/galochka.svg" width="25"></object>
                         </div> 
                     </div> 
 
-                    <div class="fieldOfDate">
+                    <div class="field-of-date">
                         <span>{{task.date}}</span>
                     </div>
 
-                    <div class="placeForChanges">
+                    <div class="place-for-changes">
                         <span>{{task.descOfStatus}}</span>
                     </div>
                 </div>
 
             </div>
 
-            <div class="deleteButton" (click)="deleteTask(task)">
+            <div class="delete-button" (click)="deleteTask(task)">
                 <object type="image/svg+xml" data="../../assets/musorka.svg" width="40"></object>
             </div>
 
